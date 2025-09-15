@@ -1,12 +1,3 @@
-# Private documentation (keep local only)
-.docs-private/
-*.private.md
-TUTORIAL.md
-PROJECT_DOCUMENTATION.md
-GIT_COMMANDS.md
-START_SERVER.bat
-START_SERVER.sh
-
 # Dependencies
 node_modules/
 .pnp
