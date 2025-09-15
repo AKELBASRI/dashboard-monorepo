@@ -1,115 +1,72 @@
-# Dashboard Monorepo
+# dashboard-monorepo
 
-Production dashboard with advanced filtering capabilities built with Next.js and Turborepo.
+hey there! this is my dashboard project built with nextjs and turborepo.
 
-## Installation
+## what is this?
+
+its a dashboard app with filters on the side. i wanted to learn how monorepos work so i built this using turborepo. the filters are in a separate package so they can be reused in other apps if needed.
+
+## setup
 
 ```bash
-# Install dependencies
-cd dashboard-monorepo
 npm install
-
-# Run development server
-npm run dev
-
-# Open http://localhost:3000
-```
-
-## 📁 Project Structure
-
-```
-dashboard-monorepo/
-├── apps/
-│   └── dashboard/          # Next.js dashboard application
-├── packages/
-│   ├── filters/           # Reusable filter components (JIT package)
-│   └── ui/                # Shared UI components
-├── turbo.json             # Turborepo configuration
-└── package.json           # Root package.json with workspaces
-```
-
-## Features
-
-- Monorepo architecture with Turborepo
-- Reusable component packages
-- Multiple filter types (select, multi-select, date range)
-- Production data visualization
-- Responsive design with Tailwind CSS
-
-## Packages
-
-### @repo/filters
-- `FilterSidebar` - Main sidebar component with collapsible UI
-- Supports multiple filter types
-- Apply/Reset functionality
-
-### @repo/ui
-- `Button` - Reusable button component
-- `Card` - Card components for dashboard layout
-
-## Tech Stack
-
-- **Next.js 14** - React framework
-- **Turborepo** - Monorepo management
-- **React 18** - UI library
-- **Tailwind CSS** - Styling
-- **JavaScript** - Programming language
-
-## Development
-
-### Run in development mode:
-```bash
 npm run dev
 ```
 
-### Build all packages:
-```bash
-npm run build
+thats it. opens on localhost:3000
+
+## how its organized
+
+```
+apps/
+  dashboard/     <- the actual nextjs app
+packages/
+  filters/       <- filter sidebar component
+  ui/           <- buttons, cards, etc
 ```
 
-### Start production server:
-```bash
-npm run build
-npm run start
-```
+## main features
 
-## Filter Types
+- sidebar with filters that actually work
+- you can filter by status, categories, and date
+- the sidebar collapses if you need more space
+- built with tailwind so it looks decent
+- everything is in javascript (no typescript yet)
 
-1. **Select Filter** - Single selection dropdown
-2. **Multi-Select Filter** - Multiple checkboxes
-3. **Date Range Filter** - Start and end date pickers
+## tech used
 
-## Project Structure
+nextjs 14, react 18, turborepo, tailwind
 
-- `apps/dashboard/app/page.js` - Main dashboard page
-- `packages/filters/src/components/FilterSidebar.js` - Filter sidebar component
-- `packages/ui/src/Button.js` - Reusable button
-- `packages/ui/src/Card.js` - Card components
+## running it
 
-## Architecture
+dev mode: `npm run dev`
 
-The project uses a monorepo structure to share code between applications efficiently. Components are organized into reusable packages that can be versioned and deployed independently.
+build: `npm run build`
 
-## Scripts
+production: `npm run build` then `npm start`
 
-```bash
-# Install dependencies
-npm install
+## the packages
 
-# Run development
-npm run dev
+**@repo/filters** - has the FilterSidebar component. you pass it config and it handles all the filter logic
 
-# Build production
-npm run build
+**@repo/ui** - basic ui stuff like buttons and cards. nothing fancy
 
-# Run linting
-npm run lint
+## notes
 
-# Clean build artifacts
-rm -rf apps/*/node_modules packages/*/node_modules
-npm install
-```
+- using the new app router in nextjs
+- data is just mock data for now
+- filters work on client side
+- might add typescript later
+- want to add tests at some point
 
-## License
+## todo
 
-MIT
+- [ ] add real api
+- [ ] typescript
+- [ ] tests
+- [ ] dark mode maybe
+- [ ] better mobile view
+
+## license
+
+MIT - do whatever you want with it
